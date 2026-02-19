@@ -1,13 +1,10 @@
-// Exemple : alerte pour bouton "Ajouter au panier"
-document.querySelectorAll('.produit button').forEach(btn => {
-    btn.addEventListener('click', () => {
-        alert("Produit ajouté au panier !");
-    });
-});
-
-// Exemple : bouton "Détails" commandes
-document.querySelectorAll('.commande button').forEach(btn => {
-    btn.addEventListener('click', () => {
-        alert("Voir les détails de la commande !");
+document.addEventListener('DOMContentLoaded', ()=>{
+    const addLinks = document.querySelectorAll('a[href*="action=add"]');
+    addLinks.forEach(link=>{
+        link.addEventListener('click', e=>{
+            e.preventDefault();
+            alert("Produit ajouté au panier !");
+            window.location.href = link.href;
+        });
     });
 });
